@@ -1,0 +1,27 @@
+{
+	"info": {
+		"_postman_id": "ba752d4a-76b2-4208-a8c9-dea4dc59ed18",
+		"name": "currency-exchange-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "https://54.147.207.43/cryptos/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
