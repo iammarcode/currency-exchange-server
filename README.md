@@ -1,8 +1,5 @@
-````
-
 # 1. Api Documentation
-
-[Postman api export file](https://github.com/whoismarcode/currency-exchange-server/blob/main/currency-exchange-server.postman_collection.json)
+[Postman api exported file](https://github.com/whoismarcode/currency-exchange-server/blob/main/currency-exchange-server.postman_collection.json)
 
 * **URL**
   http://54.147.207.43:3000/cryptos/list
@@ -51,7 +48,7 @@
     ]
 }
 ```
-* **Error Data Params** (ss is not a valid currency symbol)
+* **Error Data Params** ("ss" is not a valid currency symbol, reference: https://coinmarketcap.com/api/documentation/v1/#section/Standards-and-Conventions)
 ```javascript
 {
     "currency": "ss"
@@ -66,6 +63,7 @@
     "data": []
 }
 ```  
+
 
 # 2. How to run project locally?
 ### Clone project
@@ -95,6 +93,7 @@ npm run build
 npm run start
 ```
 
+
 # 3. Dockerize and deploy application locally
 ### Build image
 ```
@@ -106,6 +105,7 @@ docker build -t currency-exchange-server .
 docker run -p 3000:3000 currency-exchange-server
 ```
 
+
 # 4. Deploy application to remote server
 ### 4.1 Push the image to docker hub
 ```
@@ -114,19 +114,22 @@ docker login
 docker push <YOUR-DOCKER-HUB-USERNAME>/currency-exchange-server:<tagName>
 ```
 
-### 4.2 Apply a AWS EC2 free instance and setup
-    4.2.1 add HTTP rules to Inbound rules
-    4.2.2 install docker and so on...
+### 4.2 Apply and setup a AWS EC2 free instance server
+[AWS EC2 Introduction](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
+```
+add HTTP rules to Inbound rules
+install docker
+...
+```
+    
+### 4.3 Pull and run currency-exchange-server docker image
 ```
 docker login
 docker pull <YOUR-DOCKER-HUB-USERNAME>/currency-exchange-server:<tagName>
 docker run -p 3000:3000 <YOUR-DOCKER-HUB-USERNAME>/currency-exchange-server
 ```
 
-### 4.3 test public api with curl on another machine
+### 4.4 test public api with curl on another machine
 ```
 curl -d "currency=HKD" http://54.147.207.43:3000/cryptos/list
 ```
-
-
-````
